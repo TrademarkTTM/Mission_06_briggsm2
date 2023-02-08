@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mission_06_briggsm2", "Mission_06_briggsm2\Mission_06_briggsm2.csproj", "{13F04909-EB2D-4D15-A173-8253A4553125}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13F04909-EB2D-4D15-A173-8253A4553125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F04909-EB2D-4D15-A173-8253A4553125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F04909-EB2D-4D15-A173-8253A4553125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F04909-EB2D-4D15-A173-8253A4553125}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DE4FBDB-8065-40E6-846E-9CE07BE8A369}
+	EndGlobalSection
+EndGlobal
