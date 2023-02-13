@@ -11,15 +11,15 @@ namespace Mission_06_briggsm2.Models
         [Key]
         [Required]
         public int MovieId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "This field is required")]
         public string Category { get; set; }
-        [Required]
+        [Required(ErrorMessage = "This field is required")]
         public string Title { get; set; }
-        [Required]
+        [Required(ErrorMessage = "This field is required")]
         public int Year { get; set; }
-        [Required]
+        [Required(ErrorMessage = "This field is required")]
         public string Director { get; set; }
-        [Required]
+        [Required(ErrorMessage = "This field is required")]
         public string Rating { get; set; }
         public bool Edited { get; set; }
         public string Lent_To { get; set; }
