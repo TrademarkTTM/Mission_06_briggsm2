@@ -39,10 +39,18 @@ namespace Mission_06_briggsm2.Controllers
         [HttpPost]
         public IActionResult AddMovie(AddMovieResponce amr)
         {
+            if (ModelState.IsValid)
+            {
             MovieContext.Add(amr);
             MovieContext.SaveChanges();
 
             return View("Index");
+            }
+            else
+            {
+                return View();
+            }
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
