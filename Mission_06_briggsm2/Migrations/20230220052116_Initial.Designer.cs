@@ -8,7 +8,7 @@ using Mission_06_briggsm2.Models;
 namespace Mission_06_briggsm2.Migrations
 {
     [DbContext(typeof(AddMovieContext))]
-    [Migration("20230208230723_Initial")]
+    [Migration("20230220052116_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,9 +23,8 @@ namespace Mission_06_briggsm2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -54,13 +53,15 @@ namespace Mission_06_briggsm2.Migrations
 
                     b.HasKey("MovieId");
 
-                    b.ToTable("responces");
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Movies");
 
                     b.HasData(
                         new
                         {
                             MovieId = 1,
-                            Category = "Action/Adventure",
+                            CategoryId = 1,
                             Director = "Ruben Fleischer",
                             Edited = false,
                             Rating = "PG-13",
@@ -70,7 +71,7 @@ namespace Mission_06_briggsm2.Migrations
                         new
                         {
                             MovieId = 2,
-                            Category = "Action/Adventure",
+                            CategoryId = 1,
                             Director = "Joseph Kosinski",
                             Edited = false,
                             Rating = "PG-13",
@@ -80,7 +81,7 @@ namespace Mission_06_briggsm2.Migrations
                         new
                         {
                             MovieId = 3,
-                            Category = "Horor/Action",
+                            CategoryId = 2,
                             Director = "Marc Forster",
                             Edited = false,
                             Notes = "This is my most favorite",
@@ -88,6 +89,76 @@ namespace Mission_06_briggsm2.Migrations
                             Title = "World War Z",
                             Year = 2013
                         });
+                });
+
+            modelBuilder.Entity("Mission_06_briggsm2.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Action/Adventure"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Horror/Action"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Comedy"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Drama"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryName = "Family"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryName = "Horror/Suspense"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryName = "Miscellaneous"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryName = "Television"
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            CategoryName = "VHS"
+                        });
+                });
+
+            modelBuilder.Entity("Mission_06_briggsm2.Models.AddMovieResponce", b =>
+                {
+                    b.HasOne("Mission_06_briggsm2.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

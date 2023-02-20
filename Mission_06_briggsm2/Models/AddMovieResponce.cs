@@ -11,8 +11,7 @@ namespace Mission_06_briggsm2.Models
         [Key]
         [Required]
         public int MovieId { get; set; }
-        [Required(ErrorMessage = "This field is required")]
-        public string Category { get; set; }
+
         [Required(ErrorMessage = "This field is required")]
         public string Title { get; set; }
         [Required(ErrorMessage = "This field is required")]
@@ -24,6 +23,10 @@ namespace Mission_06_briggsm2.Models
         public bool Edited { get; set; }
         public string Lent_To { get; set; }
         [StringLength(25)]
-        public string Notes { get; set; }
+        public string Notes { get; set; }        
+        
+        [Required(ErrorMessage = "This field is required")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }
